@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="photo_galery.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+    <title>Photo photo_galery</title>
+  </head>
+
+  <body>
+    <div class="panels">
+      <div class="panel puglia">
+        <p>Italy</p>
+        <p>Puglia</p>
+        <a class="arrow1 fas fa-arrow-circle-down" href="#puglia_title"> </a>
+      </div>
+      <div class="panel tuscany">
+        <p>Italy</p>
+        <p>Tuscany</p>
+        <a class="arrow2 fas fa-arrow-circle-down" href="#tuscany_title"></a>
+      </div>
+      <div class="panel andalusia">
+        <p>Spain</p>
+        <p>Andalusia</p>
+        <a class="arrow3 fas fa-arrow-circle-down" href="#andalusia_title"></a>
+      </div>
+      <div class="panel california">
+        <p>USA</p>
+        <p>California</p>
+        <a class="arrow4 fas fa-arrow-circle-down" href="#usa_title"></a>
+      </div>
+    </div>
+    <div class="photo_gallery">
+      <p id="puglia_title">PUGLIA PHOTO GALLERY</p>
+      <div class="puglia scrollGallery">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+        <div class="item item6"></div>
+        <div class="item item7"></div>
+      </div>
+      <p id="tuscany_title">TUSCANY PHOTO GALLERY</p>
+      <div class="tuscany scrollGallery">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+        <div class="item item6"></div>
+        <div class="item item7"></div>
+      </div>
+      <p id="andalusia_title">ANDALUSIA PHOTO GALLERY</p>
+      <div class="andalusia scrollGallery">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+        <div class="item item6"></div>
+        <div class="item item7"></div>
+      </div>
+      <p id="usa_title">USA PHOTO GALLERY</p>
+      <div class="usa scrollGallery">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+        <div class="item item6"></div>
+        <div class="item item7"></div>
+      </div>
+    </div>
+    <a href="#" class="to-top"></a>
+    <script>
+      const panels = document.querySelectorAll(".panel");
+
+      function toogleOpen(e) {
+        this.classList.toggle("open-active");
+        this.classList.toggle("open");
+        if (e.target.classList.value.includes("open")) {
+          this.classList.add("open-active");
+        }
+      }
+      panels.forEach(panel => panel.addEventListener("click", toogleOpen));
+
+      const slider = Array.from(document.querySelectorAll(".scrollGallery"));
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.forEach(slide => {
+        slide.addEventListener("mousedown", e => {
+          isDown = true;
+          slide.classList.add("active");
+          startX = e.pageX - slide.offsetLeft;
+          scrollLeft = slide.scrollLeft;
+        });
+      });
+      slider.forEach(slide => {
+        slide.addEventListener("mouseleave", () => {
+          isDown = false;
+          slide.classList.remove("active");
+        });
+      });
+      slider.forEach(slide => {
+        slide.addEventListener("mouseup", () => {
+          isDown = false;
+          slide.classList.remove("active");
+        });
+      });
+
+      slider.forEach(slide => {
+        slide.addEventListener("mousemove", e => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slide.offsetLeft;
+          const walk = (x - startX) * 2;
+          slide.scrollLeft = scrollLeft - walk;
+        });
+      });
+
+      const topArrow = document.querySelector(".to-top");
+      function scroll() {
+        if (window.scrollY > 100) {
+          topArrow.classList.add("scroll");
+        } else {
+          topArrow.classList.remove("scroll");
+        }
+      }
+      window.addEventListener("scroll", scroll);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,341 @@
+html {
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 1;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.panels {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.panel {
+  box-shadow: 0 0 20px black;
+  flex: 1;
+  background: chocolate;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  transition: font-size 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045),
+    flex 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  color: white;
+}
+
+.puglia {
+  background-image: url("./apulia/8.jpg");
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.tuscany {
+  background-image: url("./toskania/1.jpg");
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.andalusia {
+  background-image: url("./andaluzja/5.jpg");
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.california {
+  background-image: url("./USA/2.jpg");
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+p,
+a {
+  font-family: "Indie Flower", cursive;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.arrow1 {
+  text-decoration: none;
+  color: aqua;
+}
+.arrow2 {
+  text-decoration: none;
+  color: greenyellow;
+}
+.arrow3 {
+  text-decoration: none;
+  color: sandybrown;
+}
+.arrow4 {
+  text-decoration: none;
+  color: rosybrown;
+}
+
+#puglia_title {
+  padding-top: 20px;
+}
+.panel p:nth-child(2) {
+  font-size: 4em;
+}
+
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 1.5s ease-in-out;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel.open {
+  flex: 2;
+  font-size: 24px;
+}
+
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+.panel > *:last-child {
+  transform: translateY(100%);
+}
+
+.panel.open-active > *:last-child {
+  transform: translateY(60%);
+}
+
+p:nth-child(2) {
+  cursor: pointer;
+}
+
+.scrollGallery {
+  perspective: 1000px;
+  display: flex;
+  border: 1px solid rgba(34, 32, 32, 0.123);
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform: scale(0.98);
+  height: 70vh;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.scrollGallery.active {
+  background: rgba(255, 255, 255, 0.404);
+  cursor: grabbing;
+  transform: scale(1);
+}
+.item {
+  min-width: 500px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  height: 50vh;
+  text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+}
+.puglia .item1 {
+  background-image: url("./apulia/1.jpeg");
+  background-size: cover;
+}
+
+.puglia .item2 {
+  background-size: cover;
+  background-image: url("./apulia/2.jpeg");
+}
+.puglia .item3 {
+  background-image: url("./apulia/3.jpg");
+  background-size: cover;
+}
+.puglia .item4 {
+  background-image: url("./apulia/4.jpg");
+  background-size: cover;
+}
+.puglia .item5 {
+  background-image: url("./apulia/5.jpg");
+  background-size: cover;
+}
+.puglia .item6 {
+  background-image: url("./apulia/6.jpg");
+  background-size: cover;
+}
+.puglia .item7 {
+  background-image: url("./apulia/7.jpg");
+  background-size: cover;
+}
+
+.tuscany .item1 {
+  background-image: url("./toskania/2.jpg");
+  background-size: cover;
+}
+.tuscany .item2 {
+  background-image: url("./toskania/3.jpg");
+  background-size: cover;
+}
+.tuscany .item3 {
+  background-image: url("./toskania/4.jpg");
+  background-size: cover;
+}
+.tuscany .item4 {
+  background-image: url("./toskania/5.jpg");
+  background-size: cover;
+}
+.tuscany .item5 {
+  background-image: url("./toskania/6.jfif");
+  background-size: cover;
+}
+.tuscany .item6 {
+  background-image: url("./toskania/7.jpg");
+  background-size: cover;
+}
+.tuscany .item7 {
+  background-image: url("./toskania/8.jpg");
+  background-size: cover;
+}
+
+.andalusia .item1 {
+  background-image: url("./andaluzja/1.jpg");
+  background-size: cover;
+}
+.andalusia .item2 {
+  background-image: url("./andaluzja/2.jpg");
+  background-size: cover;
+}
+.andalusia .item3 {
+  background-image: url("./andaluzja/3.jpg");
+  background-size: cover;
+}
+.andalusia .item4 {
+  background-image: url("./andaluzja/4.jpg");
+  background-size: cover;
+}
+.andalusia .item5 {
+  background-image: url("./andaluzja/6.jpg");
+  background-size: cover;
+}
+.andalusia .item6 {
+  background-image: url("./andaluzja/7.jpg");
+  background-size: cover;
+}
+.andalusia .item7 {
+  background-image: url("./andaluzja/8.jpg");
+  background-size: cover;
+}
+
+.usa .item1 {
+  background-image: url("./USA/1.jpg");
+  background-size: cover;
+}
+.usa .item2 {
+  background-image: url("./USA/3.jpg");
+  background-size: cover;
+}
+.usa .item3 {
+  background-image: url("./USA/4.jpg");
+  background-size: cover;
+}
+.usa .item4 {
+  background-image: url("./USA/5.jpg");
+  background-size: cover;
+}
+.usa .item5 {
+  background-image: url("./USA/6.jpg");
+  background-size: cover;
+}
+.usa .item6 {
+  background-image: url("./USA/7.jpg");
+  background-size: cover;
+}
+.usa .item7 {
+  background-image: url("./USA/8.jpg");
+  background-size: cover;
+}
+
+.item1 {
+  transform: rotateY(-20deg);
+}
+.item2 {
+  transform: rotateY(20deg) translateX(-28px) translateZ(-12px);
+}
+.item3 {
+  transform: rotateY(-20deg) translateX(-57px) translateZ(26px);
+}
+.item4 {
+  transform: rotateY(20deg) translateX(-92px) translateZ(-24px);
+}
+.item5 {
+  transform: rotateY(-20deg) translateX(-116px) translateZ(50px);
+}
+.item6 {
+  transform: rotateY(20deg) translateX(-149px) translateZ(-48px);
+}
+.item7 {
+  transform: rotateY(-20deg) translateX(-174px) translateZ(70px);
+}
+
+.to-top {
+  color: rgba(128, 128, 128, 0.411);
+  padding-top: 1.8em;
+  position: fixed;
+  display: block;
+  opacity: 0;
+  z-index: 2;
+  right: 30px;
+  top: 90%;
+  border-color: rgba(128, 128, 128, 0.411);
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.to-top.scroll {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+.to-top:before {
+  content: "▲";
+  font-size: 0.9em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -0.7em;
+  border: solid 0.13em rgba(128, 128, 128, 0.411);
+  border-radius: 10em;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.3em;
+  border-color: inherit;
+  transition: transform 0.5s ease-in;
+}
+.to-top:hover {
+  color: rgb(128, 128, 128);
+  border-color: rgb(128, 128, 128);
+}
+.to-top:hover:before {
+  transform: rotate(360deg);
+}
