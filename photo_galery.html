@@ -17,7 +17,6 @@
     />
     <title>Photo photo_galery</title>
   </head>
-
   <body>
     <div class="panels">
       <div class="panel puglia">
@@ -109,12 +108,14 @@
           scrollLeft = slide.scrollLeft;
         });
       });
+
       slider.forEach(slide => {
         slide.addEventListener("mouseleave", () => {
           isDown = false;
           slide.classList.remove("active");
         });
       });
+
       slider.forEach(slide => {
         slide.addEventListener("mouseup", () => {
           isDown = false;
@@ -140,6 +141,7 @@
           topArrow.classList.remove("scroll");
         }
       }
+
       window.addEventListener("scroll", scroll);
     </script>
   </body>
